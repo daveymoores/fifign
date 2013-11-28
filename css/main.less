@@ -1,0 +1,666 @@
+// Import other files. 
+@import "normalize.css";
+@import "html5bp.less";
+
+// 
+// Coded by @mikebusby
+//
+// http://espresslabs.com
+//
+
+// Variables
+@wrapper-width: 940px;
+@virgin-red: #cc0000;
+@dark-text: #272727;
+@dark-red-bottom-border: #9b1417;
+
+// Overrides 
+a { text-decoration: none; }
+
+// Mixins
+// ------
+
+// Main CTA button
+.virgin-btn-style(@height: 30px, @color) {
+    display: block;
+    
+    .button-styles() when (@color = green) {
+        background: #5abe44;
+        border-bottom: 3px solid #0b8c00; 
+        
+        &:hover {
+            background: lighten(#5abe44, 5%);
+        }
+    
+    } // green style
+    
+    .button-styles() when (@color = red) {
+        background: @virgin-red;
+        border-bottom: 3px solid @dark-red-bottom-border;
+        
+        &:hover {
+            background: lighten(@virgin-red, 5%);
+        }
+    
+    } // red style
+    
+    .button-styles();
+    
+    border-radius: 3px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    line-height: @height;
+        
+} // virgin-btn-style
+
+//
+// Virgin Gaming FIFA Site
+//
+html { overflow-x: hidden; }
+
+body {
+    width: 100%;
+    border-top: 2px solid @virgin-red;
+    margin: 0 auto;
+    overflow-x: hidden;
+    
+    // Include font
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    
+} // body
+
+.wrapper {
+    margin: 0 auto;
+    width: @wrapper-width;
+} // wrapper
+
+// Hero Container
+.hero-container {
+    margin: 0 auto;
+    height: 594px;
+    position: relative;
+    
+    // BG
+    .bg {
+        @width: 1360px;
+        
+        background: url("../img/hero-bg.jpg") no-repeat;
+        position: absolute;
+        top: 0; left: 50%;
+        margin-left: -(@width / 2);
+        height: 594px;
+        width: @width;
+        
+        z-index: -1;
+        
+    } // bg
+    
+    header {
+        padding-top: 10px;
+        
+        > a { &:first-child { float: right; } }
+    
+    } // header
+    
+    .top-hero-content {
+       width: 400px;
+       height: 330px;
+       float: right;
+       margin: 70px 60px 0 0;
+       
+    } // top-hero-content 
+    
+    .bottom-box {
+        background: rgba(0,0,0, 0.75);
+        box-sizing: border-box;
+        height: 220px;
+        padding: 15px 20px;
+        margin-top: 10px;
+        color: #fff;
+        
+        // Bar at the bottom
+        border-bottom: 10px solid rgba(255,255,255, 0.3);
+        
+        > h1 {
+            text-transform: uppercase;
+            font-size: 3.05em;
+            margin: 0;
+            line-height: 42px;
+            
+            > span {
+                font-size: 0.82em;
+            }
+            
+        } // > h1
+        
+        > p {
+            margin: 0 0 10px 0;
+            font-size: 0.9em;
+        
+        } // > p
+        
+        // learn more button 
+        a {
+            .virgin-btn-style(60px, red);
+        } // > a
+    
+    } // bottom-box
+    
+    // main bar styles and overall item style 
+    .bottom-bar {
+        position: absolute;
+        bottom: 0;
+        
+        width: @wrapper-width; 
+        height: 70px;
+        
+        background: rgba(0,0,0, 0.75);
+        box-sizing: border-box;
+        padding: 10px 10px 0;
+        
+        .item {
+            width: 300px;
+            display: inline-block;
+            color: #fff;
+            font-size: 0.75em;
+            
+            > i { 
+                display: inline-block; 
+                vertical-align: middle; 
+                margin-right: 10px; 
+            }
+            
+            > p { 
+                width: 245px;
+                display: inline-block; 
+                vertical-align: middle; 
+            }
+            
+        } // item
+        
+        // Icon styles
+        .cash {
+            background: data-uri("../img/cash-icon.png") no-repeat;
+            width: 40px; height: 34px;
+        }
+        
+        .cup {
+            background: data-uri("../img/cup-icon.png") no-repeat;
+            width: 30px; height: 33px;
+        }
+        
+        .globe {
+            background: data-uri("../img/globe-icon.png") no-repeat;
+            width: 35px; height: 35px;
+        }
+    
+    } // bottom-bar
+    
+} // hero-container
+
+// How to Play
+.how-to-play {
+    height: 210px;
+    
+    .wrapper {
+        margin-top: 50px;
+    }
+    
+    .info-box {
+        width: 220px;
+        color: @dark-text;
+        display: inline-block;
+        margin-right: 30px;
+        vertical-align: top; 
+        
+        > h3 { 
+            margin-bottom: 0;
+        }
+        
+        > p {
+          margin-top: 5px;  
+          font-size: 0.84em;
+        }
+        
+        a {
+            .virgin-btn-style(35px, red);
+            font-size: 0.8em;
+        }
+        
+    } // info-box
+    
+    .item-container {
+        display: inline-block;
+        position: relative;
+        width: 686px;
+    }
+    
+    .item {
+        width: 161px; 
+        height: 158px;
+        display: inline-block;
+        margin-right: 7px;
+        vertical-align: top;
+        position: relative;
+        
+        background: @virgin-red;
+        border-radius: 3px; 
+        border-bottom: 3px solid @dark-red-bottom-border;
+        cursor: pointer;
+        
+        // arrow in the corner
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 3px; right: 5px;
+            
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 0 0 15px 15px;
+            border-color: transparent transparent #fff transparent;
+            
+        } // &:after
+        
+        // Elements inside the item
+        > i {
+            display: block;
+            margin: 15px auto;
+            min-height: 60px;
+        
+        } // > i
+        
+        > h4 {
+            color: #fff;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 0;
+            line-height: 15px;
+        
+        } // > h4
+        
+        > span {
+            color: #fff;
+            position: absolute;
+            bottom: 5px; 
+            left: 40px;
+            font-size: 0.8em;
+            
+        } // > span
+        
+        // 3rd box
+        .top-right-triangle {
+            position: absolute;
+            top: 0; right: 0;
+            
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 0 70px 70px 0;
+            border-color: transparent #282828 transparent transparent;
+            
+            > i {
+                display: block;
+                background: data-uri("../img/item-corner-icon.png") no-repeat;
+                width: 30px; height: 30px;
+                
+                position: absolute;
+                top: 5px; right: -65px;
+            
+            } // > i
+            
+        } // top-right-triangle
+        
+    } // item
+    
+    .item-end {
+        margin-right: 0;
+        background: #282828;
+        border-bottom: 3px solid #000;
+    
+    } // &:last-child
+    
+    // Icons for all the icon containers
+    #head-to-head, #head-to-head-large {
+        > i, .icon-container > i {
+            background: data-uri("../img/head-to-head-icon.png") no-repeat;
+            width: 83px; height: 54px;
+        }   
+        
+    } // head-to-head
+    
+    #leaderboards, #leaderboards-large {
+        > i, .icon-container > i {
+            background: data-uri("../img/leaderboards-icon.png") no-repeat;
+            width: 75px; height: 49px; 
+        }
+        
+    } // leaderboards
+    
+    #custom-friend-leagues, #custom-friend-leagues-large {
+        > i, .icon-container > i {
+            background: data-uri("../img/custom-friend-leagues-icon.png") no-repeat;
+            width: 75px; height: 52px;
+        }
+        
+    } // custom-friend-leagues
+    
+    #premium-membership, #premium-membership-large {
+        > i, .icon-container > i  {
+            background: data-uri("../img/premium-icon.png") no-repeat;
+            width: 70px; height: 72px;
+        }
+        
+    } // premium-membership
+    
+    // Large items
+    .item-large {
+        background: @virgin-red;
+        position: absolute;
+        top: 0; left: 0;
+        height: 100%;
+        border-radius: 3px;
+        display: none;
+        
+        .icon-container {
+            display: inline-block;
+            position: relative;
+            width: 150px;
+            text-align: center;
+            vertical-align: top;
+        
+            > i {
+                display: inline-block;
+                margin: 30px 0 10px;
+                
+            } // > i
+            
+            > h4 {
+                color: #fff;
+                text-transform: uppercase;
+                text-align: center;
+                margin: 0;
+                line-height: 15px;
+            
+            } // > h4
+        
+        } // icon-container
+        
+        .divider {
+            display: inline-block;
+            background: data-uri("../img/item-large-divider.png") no-repeat;
+            width: 3px; height: 125px;
+            margin-top: 15px;
+            
+        } // dividers
+        
+        .content {
+            display: inline-block;
+            margin: 20px 0 0 20px;
+            width: 450px;
+            color: #fff;
+            vertical-align: top;
+            
+            > h5 {
+                font-size: 1.2em;
+                margin: 0 0 5px;
+            
+            } // > h5
+            
+            > p {
+                margin-top: 5px;
+                font-size: 0.8em;
+            }
+            
+        } // content
+        
+        .close-button {
+            position: absolute;
+            top: 5px; right: 5px;
+            width: 28px; height: 28px;   
+            background: data-uri("../img/red-x.png") no-repeat;
+            
+        } // close-button
+    
+    } // item-large
+    
+    // Dark background for large items
+    .dark {
+        background: #282828;
+        
+        .premium-text {
+            text-decoration: underline;
+            font-size: 0.7em;
+        }
+        
+        .premium-icon {
+            position: absolute;
+            bottom: 10px; right: 10px;
+            
+            background: data-uri("../img/premium-large-item-corner.png") no-repeat;
+            width: 98px; height: 27px;
+        
+        } // premium-icon
+    
+    } // dark
+    
+    // Hide the ID's
+    #head-to-head-large {
+        width: 0px;
+        display: none;
+    }
+    
+    #leaderboards-large {
+        width: 0px;
+        display: none;
+    }
+    
+    #custom-friend-leagues-large {
+        width: 0px;
+        display: none;
+    }
+    
+    #premium-membership-large {
+        width: 0px;
+        display: none;
+    }
+    
+} // how-to-play
+
+// Heading section
+.bottom-headings {
+    background: #171717;
+    height: 110px;
+    text-align: center;
+    color: #fff;
+    
+    > h1, > h2 {
+        margin: 0;
+        line-height: 30px;
+    }
+    
+    > h1 {
+        font-weight: bolder;
+        padding-top: 30px;
+    }
+    
+    > h2 {
+        font-weight: 500;
+    }
+    
+} // bottom-headings
+
+// Chart section
+.chart {
+    margin: 0 auto;
+    height: 778px;
+    position: relative;
+    
+    // BG
+    .bg {
+        @width: 1360px;
+        
+        background: url("../img/chart-bg.jpg") no-repeat;
+        position: absolute;
+        top: 0; left: 50%;
+        margin-left: -(@width / 2);
+        height: 778px;
+        width: @width;
+        
+        z-index: -1;
+        
+    } // bg
+    
+    .wrapper {
+        padding-top: 40px;
+    }
+    
+    // Main tbl content
+    .chart-container {
+        width: 100%;
+        height: 540px;
+        background: #fff;
+        text-align: center;
+        
+        .tbl-head {
+            width: 850px;
+            padding-top: 20px;
+            margin: 0 auto;
+            
+            > span {
+                width: 300px;
+                display: inline-block;
+                text-align: left;
+                font-weight: 600;
+                vertical-align: bottom;
+                color: #292929;
+                margin-bottom: 10px;
+                
+            } // > span
+        
+        } // tbl-head
+        
+        table.main {
+            box-sizing: border-box;
+            border-top: 3px solid #5f5f5f;
+            border-bottom: 3px solid #484848;
+            margin: 0 auto;
+            text-align: left;
+        
+            tr {
+                border-bottom: 1px solid #d7d7d7;
+            } // tr
+            
+            .alt {
+                background: #f2f2f2;
+            }
+                        
+            td {
+                padding: 8px 0;
+                margin-left: 20px;
+                font-size: 0.8em;
+                border-left: 1px solid #d7d7d7;
+                
+                > strong, > span {
+                    margin-left: 20px;
+                }   
+                
+            } // td
+            
+        } // > table
+        
+        // Pieces the bottom of the table
+        .bottom-tbl {
+            margin: 0 auto;
+            
+            .spacer {
+                width: 300px;
+            }
+            
+            .dark-tbl-bottom {
+                height: 7px;
+                background: #171717;
+                width: 275px;
+            
+            } // dark-tbl-bottom
+            
+            .red-tbl-bottom {
+                height: 7px;
+                background: @virgin-red;
+                width: 274px;
+            
+            } // red-tbl-bottom
+            
+            span {
+                font-weight: 800;
+            }
+        
+        } // bottom-tbl
+        
+    } // chart-container
+    
+    // Last CTA
+    .bottom-cta {
+        padding-top: 20px;
+        
+        > h1 {
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            line-height: 30px;
+            margin: 0 0 20px;
+        }
+        
+        .button {
+            .virgin-btn-style(50px, green);
+            text-align: center;
+            margin: 0 auto;
+            width: 300px;
+        }
+        
+    } // bottom-cta
+    
+} // chart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
